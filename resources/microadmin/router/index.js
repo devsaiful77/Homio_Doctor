@@ -39,6 +39,8 @@ const routes = [
                 },
             },
 
+
+            /* ===================== Service ===================== */ 
             {
                 path: "/admin/service",
                 component: () =>
@@ -48,6 +50,44 @@ const routes = [
                 name: "admin_service",
                 meta: {
                     title: "Admin | Service",
+                },
+            },
+
+            /* ===================== Service ===================== */ 
+            {
+                path: "/admin/doctor/category",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "admin_doctor_category" */ "../components/admin/doctor/Category.vue"
+                    ),
+                name: "admin_doctor_category",
+                meta: {
+                    title: "Admin | Doctor Category",
+                },
+            },
+
+            /* ===================== Service ===================== */ 
+            {
+                path: "/admin/doctor",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "admin_doctor" */ "../components/admin/doctor/Index.vue"
+                    ),
+                name: "admin_doctor",
+                meta: {
+                    title: "Admin | Doctor",
+                },
+            },
+            
+            {
+                path: "/admin/doctor/create",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "admin_doctor_add" */ "../components/admin/doctor/Create.vue"
+                    ),
+                name: "admin_doctor_add",
+                meta: {
+                    title: "Admin | Doctor",
                 },
             },
 

@@ -129,6 +129,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -136,6 +140,7 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   /* ============================= Data ============================= */data: function data() {
     return {
+      image_url: this.$store.state.image_base_link,
       form: new vform__WEBPACK_IMPORTED_MODULE_0__["default"]({
         name: '',
         description: '',
@@ -143,33 +148,28 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
         imageFile: null,
         imageName: ''
       }),
+      serviceId: '',
       imagePreview: "",
       loading: false,
       search: '',
       dialog: false,
       editDialog: false,
-      dialogDelete: false,
       loadingstatus: true,
       headers: [{
         text: 'SL No',
-        value: 'id'
+        value: 'sn'
       }, {
-        text: 'Dessert (100g serving)',
+        text: 'Image',
+        value: 'image'
+      }, {
+        text: 'Service Name',
         align: 'start',
         sortable: false,
         value: 'name'
       }, {
-        text: 'Calories',
-        value: 'calories'
-      }, {
-        text: 'Fat (g)',
-        value: 'fat'
-      }, {
-        text: 'Carbs (g)',
-        value: 'carbs'
-      }, {
-        text: 'Protein (g)',
-        value: 'protein'
+        text: 'Description',
+        value: 'description',
+        width: "40%"
       }, {
         text: 'Actions',
         value: 'actions',
@@ -177,30 +177,28 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
       }],
       desserts: [],
       editedIndex: -1,
-      editedItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0
-      },
-      defaultItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0
-      }
+      /* Breadcrumb */
+      breadcrumb_link: [{
+        text: 'Dashboard',
+        disabled: false,
+        href: '/admin/dashboard'
+      }, {
+        text: 'Service',
+        disabled: true,
+        href: '#'
+      }]
+      /* Breadcrumb */
     };
   },
+
   /* ============================= Methods ============================= */
   methods: {
-    slider: function slider() {
+    serviceList: function serviceList() {
       var _this = this;
       axios.get('/api/admin/service/list').then(function (resp) {
         if (resp.data.status == true) {
           _this.desserts = resp.data.service_list;
-          _this["this"].loadingstatus = false;
+          _this.loadingstatus = false;
         }
       })["catch"](function (error) {
         console.log(error);
@@ -213,7 +211,13 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
     },
     add: function add() {
       var _this2 = this;
-      this.form.post('/api/admin/service/create').then(function (resp) {
+      var url = "";
+      if (this.serviceId) {
+        url = '/api/admin/service/update/' + this.serviceId;
+      } else {
+        url = '/api/admin/service/create';
+      }
+      this.form.post(url).then(function (resp) {
         console.log(resp);
         if (resp.data.status == true) {
           _this2.$toasted.show(resp.data.message, {
@@ -222,17 +226,39 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
             duration: 4000
           });
           _this2.close();
+          _this2.serviceList();
         }
       })["catch"](function (error) {
         console.log(error);
         _this2.error = error;
       });
     },
+    /* Edit Data */editItem: function editItem(id) {
+      var _this3 = this;
+      axios.get('/api/admin/service/edit/' + id).then(function (resp) {
+        if (resp.data.status == true) {
+          var data = resp.data.service;
+          _this3.serviceId = data.id;
+          _this3.form.name = data.name;
+          _this3.form.description = data.description;
+          _this3.form.imageUrl = _this3.image_url + data.image;
+          _this3.editedIndex = data.id;
+          _this3.dialog = true;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        _this3.$toasted.show(error, {
+          type: "error",
+          position: 'top-center',
+          duration: 4000
+        });
+      });
+    },
     /* Image Upload */pickFile: function pickFile() {
       this.$refs.image.click();
     },
     onFilePicked: function onFilePicked(e) {
-      var _this3 = this;
+      var _this4 = this;
       var files = e.target.files;
       if (files[0] !== undefined) {
         this.form.imageName = files[0].name;
@@ -242,8 +268,8 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
         fr.addEventListener('load', function () {
-          _this3.form.imageUrl = fr.result;
-          _this3.form.imageFile = files[0];
+          _this4.form.imageUrl = fr.result;
+          _this4.form.imageFile = files[0];
         });
       } else {
         this.form.imageName = '';
@@ -251,65 +277,27 @@ Vue.component(vform_src_components_bootstrap5__WEBPACK_IMPORTED_MODULE_1__.HasEr
         this.form.imageUrl = '';
       }
     },
-    /* Image Upload */initialize: function initialize() {
-      this.desserts = [{
-        id: 1,
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0
-      }];
-    },
-    editItem: function editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.editDialog = true;
-    },
-    deleteItemConfirm: function deleteItemConfirm() {
-      this.desserts.splice(this.editedIndex, 1);
-      this.closeDelete();
-    },
-    close: function close() {
-      var _this4 = this;
-      this.dialog = false;
-      this.$nextTick(function () {
-        _this4.editedItem = Object.assign({}, _this4.defaultItem);
-        _this4.editedIndex = -1;
-      });
-    },
-    closeDelete: function closeDelete() {
+    /* Image Upload */close: function close() {
       var _this5 = this;
-      this.dialogDelete = false;
+      this.dialog = false;
       this.$nextTick(function () {
         _this5.editedItem = Object.assign({}, _this5.defaultItem);
         _this5.editedIndex = -1;
       });
-    },
-    save: function save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
-      }
-      this.close();
     }
   },
   computed: {
     formTitle: function formTitle() {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
+      return this.editedIndex === -1 ? 'Add Service' : 'Edit Service';
     }
   },
   watch: {
     dialog: function dialog(val) {
       val || this.close();
-    },
-    dialogDelete: function dialogDelete(val) {
-      val || this.closeDelete();
     }
   },
   created: function created() {
-    this.initialize();
+    this.serviceList();
   }
 });
 
@@ -1343,7 +1331,28 @@ var render = function () {
     "div",
     { staticClass: "team" },
     [
-      _c("h1", { staticClass: "subheading grey--text" }, [_vm._v("Service")]),
+      _c("div", { staticClass: "header__title" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("v-breadcrumbs", {
+              attrs: { items: _vm.breadcrumb_link },
+              scopedSlots: _vm._u([
+                {
+                  key: "divider",
+                  fn: function () {
+                    return [_c("v-icon", [_vm._v("mdi-forward")])]
+                  },
+                  proxy: true,
+                },
+              ]),
+            }),
+          ],
+          1
+        ),
+      ]),
       _vm._v(" "),
       _c(
         "v-container",
@@ -1356,302 +1365,336 @@ var render = function () {
                 "v-flex",
                 { attrs: { sm12: "", xs12: "", md6: "", lg12: "" } },
                 [
-                  _c("v-data-table", {
-                    staticClass: "elevation-1",
-                    attrs: {
-                      headers: _vm.headers,
-                      search: _vm.search,
-                      items: _vm.desserts,
-                      "sort-by": "calories",
-                      loading: _vm.loadingstatus,
-                      "loading-text": "Loading... Please wait",
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "top",
-                        fn: function () {
-                          return [
-                            _c(
-                              "v-toolbar",
-                              { attrs: { flat: "" } },
-                              [
+                  _c(
+                    "div",
+                    { staticClass: "simple_table_wrapper" },
+                    [
+                      _c("v-data-table", {
+                        staticClass: "elevation-1",
+                        attrs: {
+                          headers: _vm.headers,
+                          search: _vm.search,
+                          items: _vm.desserts,
+                          "sort-by": "calories",
+                          loading: _vm.loadingstatus,
+                          "loading-text": "Loading... Please wait",
+                          "item-key": "name",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "top",
+                            fn: function () {
+                              return [
                                 _c(
-                                  "v-dialog",
-                                  {
-                                    attrs: { "max-width": "600px" },
-                                    scopedSlots: _vm._u([
+                                  "v-toolbar",
+                                  { attrs: { flat: "" } },
+                                  [
+                                    _c(
+                                      "v-dialog",
                                       {
-                                        key: "activator",
-                                        fn: function (ref) {
-                                          var on = ref.on
-                                          var attrs = ref.attrs
-                                          return [
-                                            _c(
-                                              "v-btn",
-                                              _vm._g(
-                                                _vm._b(
-                                                  {
-                                                    staticClass: "mb-2",
-                                                    attrs: {
-                                                      color: "primary",
-                                                      dark: "",
-                                                    },
-                                                  },
+                                        attrs: { "max-width": "600px" },
+                                        scopedSlots: _vm._u([
+                                          {
+                                            key: "activator",
+                                            fn: function (ref) {
+                                              var on = ref.on
+                                              var attrs = ref.attrs
+                                              return [
+                                                _c(
                                                   "v-btn",
-                                                  attrs,
-                                                  false
-                                                ),
-                                                on
-                                              ),
-                                              [
-                                                _vm._v(
-                                                  "\n                                        Add Service\n                                    "
+                                                  _vm._g(
+                                                    _vm._b(
+                                                      {
+                                                        staticClass: "mb-2",
+                                                        attrs: {
+                                                          color: "primary",
+                                                          dark: "",
+                                                        },
+                                                      },
+                                                      "v-btn",
+                                                      attrs,
+                                                      false
+                                                    ),
+                                                    on
+                                                  ),
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                            Add Service\n                                        "
+                                                    ),
+                                                  ]
                                                 ),
                                               ]
-                                            ),
-                                          ]
+                                            },
+                                          },
+                                        ]),
+                                        model: {
+                                          value: _vm.dialog,
+                                          callback: function ($$v) {
+                                            _vm.dialog = $$v
+                                          },
+                                          expression: "dialog",
                                         },
                                       },
-                                    ]),
-                                    model: {
-                                      value: _vm.dialog,
-                                      callback: function ($$v) {
-                                        _vm.dialog = $$v
-                                      },
-                                      expression: "dialog",
-                                    },
-                                  },
-                                  [
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-card",
                                       [
-                                        _vm.loading
-                                          ? _c(
-                                              "h1",
-                                              [
-                                                _c("v-progress-circular", {
-                                                  attrs: { value: 20 },
-                                                }),
-                                              ],
-                                              1
-                                            )
-                                          : _c(
-                                              "v-form",
-                                              {
-                                                attrs: {
-                                                  enctype:
-                                                    "multipart/form-data",
-                                                },
-                                                on: {
-                                                  submit: function ($event) {
-                                                    $event.preventDefault()
-                                                    return _vm.add.apply(
-                                                      null,
-                                                      arguments
-                                                    )
-                                                  },
-                                                  keydown: function ($event) {
-                                                    return _vm.form.onKeydown(
-                                                      $event
-                                                    )
-                                                  },
-                                                },
-                                              },
-                                              [
-                                                _c("v-card-title", [
-                                                  _c(
-                                                    "span",
-                                                    { staticClass: "text-h5" },
-                                                    [_vm._v("Add Service")]
-                                                  ),
-                                                ]),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-card-text",
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card",
+                                          [
+                                            _vm.loading
+                                              ? _c(
+                                                  "h1",
                                                   [
+                                                    _c("v-progress-circular", {
+                                                      attrs: { value: 20 },
+                                                    }),
+                                                  ],
+                                                  1
+                                                )
+                                              : _c(
+                                                  "v-form",
+                                                  {
+                                                    attrs: {
+                                                      enctype:
+                                                        "multipart/form-data",
+                                                    },
+                                                    on: {
+                                                      submit: function (
+                                                        $event
+                                                      ) {
+                                                        $event.preventDefault()
+                                                        return _vm.add.apply(
+                                                          null,
+                                                          arguments
+                                                        )
+                                                      },
+                                                      keydown: function (
+                                                        $event
+                                                      ) {
+                                                        return _vm.form.onKeydown(
+                                                          $event
+                                                        )
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    _c("v-card-title", [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "text-h5",
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              _vm.formTitle
+                                                            )
+                                                          ),
+                                                        ]
+                                                      ),
+                                                    ]),
+                                                    _vm._v(" "),
                                                     _c(
-                                                      "v-container",
+                                                      "v-card-text",
                                                       [
                                                         _c(
-                                                          "v-row",
+                                                          "v-container",
                                                           [
                                                             _c(
-                                                              "v-col",
-                                                              {
-                                                                attrs: {
-                                                                  md: "12",
-                                                                },
-                                                              },
+                                                              "v-row",
                                                               [
                                                                 _c(
-                                                                  "v-text-field",
+                                                                  "v-col",
                                                                   {
                                                                     attrs: {
-                                                                      label:
-                                                                        "Service Name",
-                                                                      outlined:
-                                                                        "",
-                                                                      dense: "",
+                                                                      md: "12",
                                                                     },
-                                                                    model: {
-                                                                      value:
-                                                                        _vm.form
-                                                                          .name,
-                                                                      callback:
-                                                                        function (
-                                                                          $$v
-                                                                        ) {
-                                                                          _vm.$set(
-                                                                            _vm.form,
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "v-text-field",
+                                                                      {
+                                                                        attrs: {
+                                                                          label:
+                                                                            "Service Name",
+                                                                          outlined:
+                                                                            "",
+                                                                          dense:
+                                                                            "",
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .name,
+                                                                          callback:
+                                                                            function (
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.form,
+                                                                                "name",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                          expression:
+                                                                            "form.name",
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "has-error",
+                                                                      {
+                                                                        attrs: {
+                                                                          form: _vm.form,
+                                                                          field:
                                                                             "name",
-                                                                            $$v
-                                                                          )
                                                                         },
-                                                                      expression:
-                                                                        "form.name",
-                                                                    },
-                                                                  }
+                                                                      }
+                                                                    ),
+                                                                  ],
+                                                                  1
                                                                 ),
                                                                 _vm._v(" "),
                                                                 _c(
-                                                                  "has-error",
+                                                                  "v-col",
                                                                   {
                                                                     attrs: {
-                                                                      form: _vm.form,
-                                                                      field:
-                                                                        "name",
+                                                                      md: "12",
                                                                     },
-                                                                  }
-                                                                ),
-                                                              ],
-                                                              1
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "v-col",
-                                                              {
-                                                                attrs: {
-                                                                  md: "12",
-                                                                },
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "v-textarea",
-                                                                  {
-                                                                    attrs: {
-                                                                      label:
-                                                                        "Description",
-                                                                      outlined:
-                                                                        "",
-                                                                      dense: "",
-                                                                    },
-                                                                    model: {
-                                                                      value:
-                                                                        _vm.form
-                                                                          .description,
-                                                                      callback:
-                                                                        function (
-                                                                          $$v
-                                                                        ) {
-                                                                          _vm.$set(
-                                                                            _vm.form,
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "v-textarea",
+                                                                      {
+                                                                        attrs: {
+                                                                          label:
+                                                                            "Description",
+                                                                          outlined:
+                                                                            "",
+                                                                          dense:
+                                                                            "",
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .description,
+                                                                          callback:
+                                                                            function (
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.form,
+                                                                                "description",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                          expression:
+                                                                            "form.description",
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "has-error",
+                                                                      {
+                                                                        attrs: {
+                                                                          form: _vm.form,
+                                                                          field:
                                                                             "description",
-                                                                            $$v
-                                                                          )
                                                                         },
-                                                                      expression:
-                                                                        "form.description",
-                                                                    },
-                                                                  }
+                                                                      }
+                                                                    ),
+                                                                  ],
+                                                                  1
                                                                 ),
                                                                 _vm._v(" "),
                                                                 _c(
-                                                                  "has-error",
+                                                                  "v-flex",
                                                                   {
+                                                                    staticClass:
+                                                                      "text-xs-center text-sm-center text-md-center text-lg-center",
                                                                     attrs: {
-                                                                      form: _vm.form,
-                                                                      field:
-                                                                        "description",
+                                                                      xs12: "",
                                                                     },
-                                                                  }
-                                                                ),
-                                                              ],
-                                                              1
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "v-flex",
-                                                              {
-                                                                staticClass:
-                                                                  "text-xs-center text-sm-center text-md-center text-lg-center",
-                                                                attrs: {
-                                                                  xs12: "",
-                                                                },
-                                                              },
-                                                              [
-                                                                _vm.form
-                                                                  .imageUrl
-                                                                  ? _c("img", {
-                                                                      attrs: {
-                                                                        src: _vm
-                                                                          .form
-                                                                          .imageUrl,
-                                                                        height:
-                                                                          "150",
-                                                                      },
-                                                                    })
-                                                                  : _vm._e(),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "v-text-field",
-                                                                  {
-                                                                    attrs: {
-                                                                      label:
-                                                                        "Select Image",
-                                                                      "prepend-icon":
-                                                                        "mdi-file-image",
-                                                                    },
-                                                                    on: {
-                                                                      click:
-                                                                        _vm.pickFile,
-                                                                    },
-                                                                    model: {
-                                                                      value:
-                                                                        _vm.form
-                                                                          .imageName,
-                                                                      callback:
-                                                                        function (
-                                                                          $$v
-                                                                        ) {
-                                                                          _vm.$set(
-                                                                            _vm.form,
-                                                                            "imageName",
-                                                                            $$v
-                                                                          )
+                                                                  },
+                                                                  [
+                                                                    _vm.form
+                                                                      .imageUrl
+                                                                      ? _c(
+                                                                          "img",
+                                                                          {
+                                                                            attrs:
+                                                                              {
+                                                                                src: _vm
+                                                                                  .form
+                                                                                  .imageUrl,
+                                                                                height:
+                                                                                  "150",
+                                                                              },
+                                                                          }
+                                                                        )
+                                                                      : _vm._e(),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "v-text-field",
+                                                                      {
+                                                                        attrs: {
+                                                                          label:
+                                                                            "Select Image",
+                                                                          "prepend-icon":
+                                                                            "mdi-file-image",
                                                                         },
-                                                                      expression:
-                                                                        "form.imageName",
-                                                                    },
-                                                                  }
+                                                                        on: {
+                                                                          click:
+                                                                            _vm.pickFile,
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .imageName,
+                                                                          callback:
+                                                                            function (
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.form,
+                                                                                "imageName",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                          expression:
+                                                                            "form.imageName",
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "input",
+                                                                      {
+                                                                        ref: "image",
+                                                                        staticStyle:
+                                                                          {
+                                                                            display:
+                                                                              "none",
+                                                                          },
+                                                                        attrs: {
+                                                                          type: "file",
+                                                                          accept:
+                                                                            "image/jpeg, image/jpg, image/png",
+                                                                        },
+                                                                        on: {
+                                                                          change:
+                                                                            _vm.onFilePicked,
+                                                                        },
+                                                                      }
+                                                                    ),
+                                                                  ],
+                                                                  1
                                                                 ),
-                                                                _vm._v(" "),
-                                                                _c("input", {
-                                                                  ref: "image",
-                                                                  staticStyle: {
-                                                                    display:
-                                                                      "none",
-                                                                  },
-                                                                  attrs: {
-                                                                    type: "file",
-                                                                    accept:
-                                                                      "image/jpeg, image/jpg, image/png",
-                                                                  },
-                                                                  on: {
-                                                                    change:
-                                                                      _vm.onFilePicked,
-                                                                  },
-                                                                }),
                                                               ],
                                                               1
                                                             ),
@@ -1661,204 +1704,140 @@ var render = function () {
                                                       ],
                                                       1
                                                     ),
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-card-actions",
-                                                  {
-                                                    staticClass:
-                                                      "justify-center",
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "v-btn",
-                                                      {
-                                                        attrs: {
-                                                          depressed: "",
-                                                          color: "error",
-                                                        },
-                                                        on: {
-                                                          click: _vm.close,
-                                                        },
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Cancel\n                                            "
-                                                        ),
-                                                      ]
-                                                    ),
                                                     _vm._v(" "),
                                                     _c(
-                                                      "v-btn",
+                                                      "v-card-actions",
                                                       {
-                                                        attrs: {
-                                                          color: "primary",
-                                                          depressed: "",
-                                                          type: "submit",
-                                                        },
+                                                        staticClass:
+                                                          "justify-center",
                                                       },
                                                       [
-                                                        _vm._v(
-                                                          "\n                                                Save\n                                            "
+                                                        _c(
+                                                          "v-btn",
+                                                          {
+                                                            attrs: {
+                                                              depressed: "",
+                                                              color: "error",
+                                                            },
+                                                            on: {
+                                                              click: _vm.close,
+                                                            },
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                    Cancel\n                                                "
+                                                            ),
+                                                          ]
                                                         ),
-                                                      ]
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-btn",
+                                                          {
+                                                            attrs: {
+                                                              color: "primary",
+                                                              depressed: "",
+                                                              type: "submit",
+                                                            },
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                    Save\n                                                "
+                                                            ),
+                                                          ]
+                                                        ),
+                                                      ],
+                                                      1
                                                     ),
                                                   ],
                                                   1
                                                 ),
-                                              ],
-                                              1
-                                            ),
-                                      ],
-                                      1
-                                    ),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c("v-text-field", {
-                                  attrs: {
-                                    "append-icon": "mdi-magnify",
-                                    label: "Search",
-                                    "single-line": "",
-                                    "hide-details": "",
-                                  },
-                                  model: {
-                                    value: _vm.search,
-                                    callback: function ($$v) {
-                                      _vm.search = $$v
-                                    },
-                                    expression: "search",
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "v-dialog",
-                                  {
-                                    attrs: { "max-width": "500px" },
-                                    model: {
-                                      value: _vm.dialogDelete,
-                                      callback: function ($$v) {
-                                        _vm.dialogDelete = $$v
-                                      },
-                                      expression: "dialogDelete",
-                                    },
-                                  },
-                                  [
-                                    _c(
-                                      "v-card",
-                                      [
-                                        _c(
-                                          "v-card-title",
-                                          { staticClass: "text-h5" },
-                                          [
-                                            _vm._v(
-                                              "Are you sure you want to delete this\n                                        item?"
-                                            ),
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-actions",
-                                          [
-                                            _c("v-spacer"),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                attrs: {
-                                                  color: "blue darken-1",
-                                                  text: "",
-                                                },
-                                                on: { click: _vm.closeDelete },
-                                              },
-                                              [_vm._v("Cancel")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                attrs: {
-                                                  color: "blue darken-1",
-                                                  text: "",
-                                                },
-                                                on: {
-                                                  click: _vm.deleteItemConfirm,
-                                                },
-                                              },
-                                              [_vm._v("OK")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c("v-spacer"),
                                           ],
                                           1
                                         ),
                                       ],
                                       1
                                     ),
+                                    _vm._v(" "),
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        "append-icon": "mdi-magnify",
+                                        label: "Search",
+                                        "single-line": "",
+                                        "hide-details": "",
+                                      },
+                                      model: {
+                                        value: _vm.search,
+                                        callback: function ($$v) {
+                                          _vm.search = $$v
+                                        },
+                                        expression: "search",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
-                              ],
-                              1
-                            ),
-                          ]
-                        },
-                        proxy: true,
-                      },
-                      {
-                        key: "item.actions",
-                        fn: function (ref) {
-                          var item = ref.item
-                          return [
-                            _c(
-                              "v-icon",
-                              {
-                                staticClass: "mr-2",
-                                attrs: { small: "" },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.editItem(item)
+                              ]
+                            },
+                            proxy: true,
+                          },
+                          {
+                            key: "item.sn",
+                            fn: function (ref) {
+                              var index = ref.index
+                              return [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(index + 1) +
+                                    "\n                        "
+                                ),
+                              ]
+                            },
+                          },
+                          {
+                            key: "item.image",
+                            fn: function (ref) {
+                              var item = ref.item
+                              return [
+                                _c("img", {
+                                  staticClass: "table_image",
+                                  attrs: { src: _vm.image_url + item.image },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "item.actions",
+                            fn: function (ref) {
+                              var item = ref.item
+                              return [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    staticClass: "mr-2",
+                                    attrs: { small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.editItem(item.id)
+                                      },
+                                    },
                                   },
-                                },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            mdi-pencil\n                        "
+                                  [
+                                    _vm._v(
+                                      "\n                                mdi-pencil\n                            "
+                                    ),
+                                  ]
                                 ),
                               ]
-                            ),
-                          ]
-                        },
-                      },
-                      {
-                        key: "no-data",
-                        fn: function () {
-                          return [
-                            _c(
-                              "v-btn",
-                              {
-                                attrs: { color: "primary" },
-                                on: { click: _vm.initialize },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Reset\n                        "
-                                ),
-                              ]
-                            ),
-                          ]
-                        },
-                        proxy: true,
-                      },
-                    ]),
-                  }),
-                ],
-                1
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ]
               ),
             ],
             1
@@ -1870,7 +1849,17 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "subheading grey--text" }, [
+      _c("i", { staticClass: "fa-solid fa-table-list" }),
+      _vm._v(" Service"),
+    ])
+  },
+]
 render._withStripped = true
 
 

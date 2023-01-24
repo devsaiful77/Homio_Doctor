@@ -21,6 +21,20 @@ Route::get('reboot', function () {
          dd("Ready to Start.");
 });
 
+/* Global Router */
+
+
+
+
+
+Route::get('api/division/list','GEOController@division'); 
+Route::get('api/district/list/{division_id}','GEOController@district'); 
+Route::get('api/thana/list/{district_id}','GEOController@thana'); 
+Route::get('api/union/list/{thana_id}','GEOController@union'); 
+/* Global Router */ 
+
+
+
 ###### PUBLIC API ROUTES ######
 require 'admin.php';
 ###### PUBLIC API ROUTES ######

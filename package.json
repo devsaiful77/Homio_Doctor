@@ -28,7 +28,15 @@
         "webpack-cli": "^5.0.1"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^21.0.0",
+        "@ckeditor/ckeditor5-easy-image": "^31.0.0",
+        "@ckeditor/ckeditor5-vue": "^1.0.1",
+        "@fortawesome/fontawesome-svg-core": "^6.2.1",
+        "@fortawesome/free-solid-svg-icons": "^6.2.1",
+        "@fortawesome/vue-fontawesome": "^2.0.9",
+        "swiper-vue2": "^1.0.10",
         "vform": "^2.1.2",
+        "vue-owl-carousel": "^2.0.3",
         "vue-router": "^3.4.3",
         "vue-toasted": "^1.1.28",
         "vuetify": "^2.6.14",

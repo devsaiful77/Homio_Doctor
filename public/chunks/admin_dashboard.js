@@ -286,6 +286,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "v-container",
+        { staticClass: "custom__container" },
         [
           _c(
             "v-layout",

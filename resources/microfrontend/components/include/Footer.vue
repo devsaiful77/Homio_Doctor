@@ -1,88 +1,105 @@
 <template lang="">
     <div>
-        <!-- footer part -->
-        <!-- Footer -->
-        <footer class="desktop_footer">
-            <div class="container footer_grid">
-                <div class="footer_about_us">
-                    <div class="footer_logo">
-                        <img
-                            :src="static_image_url + '/logo_white.png'"
-                            alt=""
-                            srcset=""
-                        />
-                    </div>
-                    <div class="footer_about_us_details">
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Quam animi eum aut quisquam harum, cum
-                            repudiandae? Sit necessitatibus odio enim.
+        <!--    FOOTER SECTION-->
+    <footer class="pt-5">
+        <div class="container">
+            <div class="row pb-3">
+                <div class="col-12 col-md-12 col-lg-4 mb-4 mb-md-0">
+                    <div class="footer-box">
+                        <img :src="static_image_url + 'logo/logo.png'" alt="Logo">
+                        <p class="sm-text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
                         </p>
+                        <div class="social-media-footer">
+                            <h4>Social Media</h4>
+                            <div>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-pinterest-p"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="footer_top_service">
-                    <h6>Top Service</h6>
-                    <ul>
-                        <li>
-                            <a href="">Offline Doctors</a>
-                        </li>
-                        <li>
-                            <a href="">Online Doctors</a>
-                        </li>
-                        <li>
-                            <a href="">Home Service</a>
-                        </li>
-                        <li>
-                            <a href="">Medicine Mart</a>
-                        </li>
-                        <li>
-                            <a href="">Surgery</a>
-                        </li>
-                        <li>
-                            <a href="">Ambulance</a>
-                        </li>
-                        <li>
-                            <a href="">Blood Donor</a>
-                        </li>
-                    </ul>
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <div class="footer-box">
+                        <h6>Quick Link</h6>
+                        <div class="footer-menu">
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Training Program</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Consulting Services</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Exhibition</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> An Opportunity</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Media Incubator</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> IPTV Channel List</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Sponsorships</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer_top_service footer_quick_menu">
-                    <h6>Quick Menu</h6>
-                    <ul>
-                        <li>
-                            <a href="">Our Policy</a>
-                        </li>
-                        <li>
-                            <a href="">Appointment System</a>
-                        </li>
-                        <li>
-                            <a href="">Online Service</a>
-                        </li>
-                        <li>
-                            <a href="">Medicine Return Policy</a>
-                        </li>
-                    </ul>
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <div class="footer-box">
+                        <h6>Our Pages</h6>
+                        <div class="footer-menu">
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Training Program</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Consulting Services</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Exhibition</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> An Opportunity</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Media Incubator</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> IPTV Channel List</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Sponsorships</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer_top_service footer_contact_details">
-                    <h6>Contact</h6>
-                    <ul>
-                        <li>
-                            <p>Phone: <span>123456789</span></p>
-                        </li>
-                    </ul>
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <div class="footer-box">
+                        <h6>Shop Link</h6>
+                        <div class="footer-menu">
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Training Program</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Consulting Services</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Exhibition</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> An Opportunity</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Media Incubator</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> IPTV Channel List</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Sponsorships</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <div class="footer-box">
+                        <h6>Study Link</h6>
+                        <div class="footer-menu">
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Training Program</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Consulting Services</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Exhibition</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> An Opportunity</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Media Incubator</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> IPTV Channel List</a>
+                            <a href="#"> <i class="fa-solid fa-angles-right footer-left-icon"></i> Sponsorships</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-        </footer>
-        <section class="bottom_footer">
-            <div class="container footer_bottom">
-                <a href="">All Right Reserved by <span>Health Care</span></a>
-                <a href="">
-                    Developed By
-                    <span id="developed_by">Mohasagor IT Solutions</span></a
-                >
+        </div>
+    </footer>
+    <section class="copyright-section">
+        <div class="container">
+            <div class="col-sm-12">
+                <p>@copyright-2022. All rights reserved Homeo Doctor ltd</p>
             </div>
-        </section>
-        <!-- footer part -->
+        </div>
+    </section>
+    <!--    FOOTER SECTION END-->
     </div>
 </template>
 <script>

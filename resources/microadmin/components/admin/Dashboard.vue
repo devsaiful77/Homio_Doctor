@@ -1,7 +1,7 @@
 <template>
     <div class="team">
         <h1 class="subheading grey--text">Dashboard</h1>
-        <v-container>
+        <v-container class="custom__container">
             <v-layout row wrap>
                 <v-flex sm6 xs12 md6 lg3>
                     <v-card class="ma-3">

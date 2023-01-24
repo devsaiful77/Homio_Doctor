@@ -133,6 +133,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   /* ======================= Data ======================= */data: function data() {
@@ -154,6 +171,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -523,31 +647,40 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("footer", { staticClass: "desktop_footer" }, [
-      _c("div", { staticClass: "container footer_grid" }, [
-        _c("div", { staticClass: "footer_about_us" }, [
-          _c("div", { staticClass: "footer_logo" }, [
-            _c("img", {
-              attrs: {
-                src: _vm.static_image_url + "/logo_white.png",
-                alt: "",
-                srcset: "",
-              },
-            }),
+    _c("footer", { staticClass: "pt-5" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row pb-3" }, [
+          _c("div", { staticClass: "col-12 col-md-12 col-lg-4 mb-4 mb-md-0" }, [
+            _c("div", { staticClass: "footer-box" }, [
+              _c("img", {
+                attrs: {
+                  src: _vm.static_image_url + "logo/logo.png",
+                  alt: "Logo",
+                },
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "sm-text" }, [
+                _vm._v(
+                  "\n                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text\n                    "
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+            ]),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4),
         ]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(4),
+    _vm._m(5),
   ])
 }
 var staticRenderFns = [
@@ -555,62 +688,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer_about_us_details" }, [
-      _c("p", [
-        _vm._v(
-          "\n                        Lorem ipsum dolor, sit amet consectetur adipisicing\n                        elit. Quam animi eum aut quisquam harum, cum\n                        repudiandae? Sit necessitatibus odio enim.\n                    "
-        ),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer_top_service" }, [
-      _c("h6", [_vm._v("Top Service")]),
+    return _c("div", { staticClass: "social-media-footer" }, [
+      _c("h4", [_vm._v("Social Media")]),
       _vm._v(" "),
-      _c("ul", [
-        _c("li", [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Offline Doctors")]),
+      _c("div", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-facebook" }),
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Online Doctors")]),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-twitter" }),
         ]),
         _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Home Service")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Medicine Mart")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Surgery")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Ambulance")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Blood Donor")])]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer_top_service footer_quick_menu" }, [
-      _c("h6", [_vm._v("Quick Menu")]),
-      _vm._v(" "),
-      _c("ul", [
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Our Policy")])]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Appointment System")]),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-linkedin" }),
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Online Service")]),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-instagram" }),
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Medicine Return Policy")]),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-pinterest-p" }),
         ]),
       ]),
     ])
@@ -619,35 +718,255 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "footer_top_service footer_contact_details" },
-      [
-        _c("h6", [_vm._v("Contact")]),
+    return _c("div", { staticClass: "col-6 col-md-3 col-lg-2 mb-4 mb-md-0" }, [
+      _c("div", { staticClass: "footer-box" }, [
+        _c("h6", [_vm._v("Quick Link")]),
         _vm._v(" "),
-        _c("ul", [
-          _c("li", [
-            _c("p", [_vm._v("Phone: "), _c("span", [_vm._v("123456789")])]),
+        _c("div", { staticClass: "footer-menu" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Training Program"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Consulting Services"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Exhibition"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" An Opportunity"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Media Incubator"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" IPTV Channel List"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Sponsorships"),
           ]),
         ]),
-      ]
-    )
+      ]),
+    ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "bottom_footer" }, [
-      _c("div", { staticClass: "container footer_bottom" }, [
-        _c("a", { attrs: { href: "" } }, [
-          _vm._v("All Right Reserved by "),
-          _c("span", [_vm._v("Health Care")]),
-        ]),
+    return _c("div", { staticClass: "col-6 col-md-3 col-lg-2 mb-4 mb-md-0" }, [
+      _c("div", { staticClass: "footer-box" }, [
+        _c("h6", [_vm._v("Our Pages")]),
         _vm._v(" "),
-        _c("a", { attrs: { href: "" } }, [
-          _vm._v("\n                Developed By\n                "),
-          _c("span", { attrs: { id: "developed_by" } }, [
-            _vm._v("Mohasagor IT Solutions"),
+        _c("div", { staticClass: "footer-menu" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Training Program"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Consulting Services"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Exhibition"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" An Opportunity"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Media Incubator"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" IPTV Channel List"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Sponsorships"),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 col-md-3 col-lg-2 mb-4 mb-md-0" }, [
+      _c("div", { staticClass: "footer-box" }, [
+        _c("h6", [_vm._v("Shop Link")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer-menu" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Training Program"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Consulting Services"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Exhibition"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" An Opportunity"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Media Incubator"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" IPTV Channel List"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Sponsorships"),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 col-md-3 col-lg-2 mb-4 mb-md-0" }, [
+      _c("div", { staticClass: "footer-box" }, [
+        _c("h6", [_vm._v("Study Link")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer-menu" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Training Program"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Consulting Services"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Exhibition"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" An Opportunity"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Media Incubator"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" IPTV Channel List"),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", {
+              staticClass: "fa-solid fa-angles-right footer-left-icon",
+            }),
+            _vm._v(" Sponsorships"),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "copyright-section" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("p", [
+            _vm._v("@copyright-2022. All rights reserved Homeo Doctor ltd"),
           ]),
         ]),
       ]),
@@ -676,248 +995,86 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("header", [
-      _c("nav", { staticClass: "desktop_header container" }, [
-        _c("div", { staticClass: "logo_container" }, [
-          _c("img", {
-            attrs: {
-              src: _vm.static_image_url + "logo.png",
-              alt: "Health Care",
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "header_menu" }, [
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "welcome" } } }, [
-                _vm._v("Home"),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("li", { staticClass: "body-1" }, [
-            _c("a", { staticStyle: { cursor: "pointer" } }, [
-              _vm._v("Doctors"),
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "header_submenu" }, [
-              _c(
-                "li",
-                { staticClass: "body-2" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "offline_doctor" } } },
-                    [_vm._v("Offline Doctors")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "body-2" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "online_doctor" } } },
-                    [_vm._v("Online Doctors")]
-                  ),
-                ],
-                1
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "surgery_support" } } },
-                [_vm._v(" Surgery Support")]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "home_service" } } }, [
-                _vm._v(" Home Service"),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "health_mart" } } }, [
-                _vm._v(" Health Mart"),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "ambulance" } } }, [
-                _vm._v(" Ambulance "),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "blood_bank" } } }, [
-                _vm._v(" Blood Bank"),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "body-1" },
-            [
-              _c("router-link", { attrs: { to: { name: "blog" } } }, [
-                _vm._v("Blogs"),
-              ]),
-            ],
-            1
-          ),
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "mobile_menu", attrs: { id: "mobile_menu" } }, [
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "welcome" } } }, [
-              _vm._v("Home"),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("li", { staticClass: "body-1" }, [
-          _c("a", { staticStyle: { cursor: "pointer" } }, [_vm._v("Doctors")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "header_submenu" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("header", { staticClass: "d-flex align-items-center" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row align-items-center" }, [
+          _c("div", { staticClass: "col-12 col-md-2" }, [
             _c(
-              "li",
-              { staticClass: "body-2" },
+              "div",
+              {
+                staticClass:
+                  "logo d-flex justify-content-between align-items-center",
+              },
               [
-                _c(
-                  "router-link",
-                  { attrs: { to: { name: "offline_doctor" } } },
-                  [_vm._v("Offline Doctors")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "body-2" },
-              [
-                _c(
-                  "router-link",
-                  { attrs: { to: { name: "online_doctor" } } },
-                  [_vm._v("Online Doctors")]
-                ),
-              ],
-              1
+                _c("a", { attrs: { href: "index.html" } }, [
+                  _c("img", {
+                    attrs: {
+                      src: _vm.static_image_url + "logo/logo.png",
+                      alt: "Logo",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fa fa-bars d-md-none",
+                  attrs: { onClick: "mobileClick()", "aria-hidden": "true" },
+                }),
+              ]
             ),
           ]),
+          _vm._v(" "),
+          _vm._m(1),
         ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "surgery_support" } } }, [
-              _vm._v(" Surgery Support"),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "home_service" } } }, [
-              _vm._v(" Home Service"),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "health_mart" } } }, [
-              _vm._v(" Health Mart"),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "ambulance" } } }, [
-              _vm._v(" Ambulance "),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "blood_bank" } } }, [
-              _vm._v(" Blood Bank"),
-            ]),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "body-1" },
-          [
-            _c("router-link", { attrs: { to: { name: "blog" } } }, [
-              _vm._v("Blogs"),
-            ]),
-          ],
-          1
-        ),
       ]),
     ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mobile-menu", attrs: { id: "mobile-menu" } }, [
+      _c(
+        "div",
+        {
+          staticClass: "accordion accordion-flush",
+          attrs: { id: "accordionFlushExample" },
+        },
+        [
+          _c("div", { staticClass: "mobile-logo mb-5" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                attrs: {
+                  src: _vm.static_image_url + "logo/logo.png",
+                  alt: "mobile-logo",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-times",
+              attrs: { id: "mobile-cross", onClick: "mobileClick()" },
+            }),
+          ]),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._m(5),
+          _vm._v(" "),
+          _vm._m(6),
+          _vm._v(" "),
+          _vm._m(7),
+          _vm._v(" "),
+          _vm._m(8),
+        ]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", {
+      staticClass: "mobile-overlay",
+      attrs: { id: "mobileOverlay", onClick: "mobileClick()" },
+    }),
   ])
 }
 var staticRenderFns = [
@@ -925,9 +1082,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login_btn" }, [
-      _c("a", { staticClass: "btn_primary", attrs: { href: "#" } }, [
-        _vm._v("Login"),
+    return _c("section", { staticClass: "header-top py-2" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-sm-12 header-top-content d-flex justify-content-end",
+            },
+            [
+              _c("div", { staticClass: "email-address mx-2 mx-lg-3" }, [
+                _c("i", { staticClass: "fa-solid fa-envelope-circle-check" }),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("homeodoctor@support.com"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "contact-phone mx-2 mx-lg-3" }, [
+                _c("i", { staticClass: "fa-solid fa-square-phone-flip" }),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [_vm._v("012345678911")]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "login-part mx-2 mx-lg-3" }, [
+                _c("i", { staticClass: "fa-solid fa-circle-user" }),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Login/Registration"),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
       ]),
     ])
   },
@@ -935,11 +1123,409 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "menu_btn", attrs: { onclick: "mobileMenu()" } },
-      [_c("i", { staticClass: "fa-solid fa-bars" })]
-    )
+    return _c("div", { staticClass: "col-md-10 d-none d-md-block" }, [
+      _c("div", { staticClass: "menubar" }, [
+        _c("ul", [
+          _c("li", [
+            _c("a", { attrs: { href: "index.html" } }, [_vm._v("Home")]),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "sub-btn button1" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Pages\n                                "),
+              _c("i", { staticClass: "fa-solid fa-angle-down" }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sub-menu" }, [
+              _c("a", { attrs: { href: "aboutus.html" } }, [
+                _vm._v("About Us"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "our-doctor.html" } }, [
+                _vm._v("Our Doctor"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "faq.html" } }, [_vm._v("FaQ ")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "coming-soon.html" } }, [
+                _vm._v("Others"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "testimonial" } }, [
+                _vm._v("Testimonial"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "404-not-found.html" } }, [
+                _vm._v("Page 404"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "sub-btn button1" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Our Service\n                                "),
+              _c("i", { staticClass: "fa-solid fa-angle-down" }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sub-menu" }, [
+              _c("a", { attrs: { href: "why-online-treat.html" } }, [
+                _vm._v("Why online treat"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "how-it-work.html" } }, [
+                _vm._v("How it Works"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "disease.html" } }, [_vm._v("Disease")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "404-not-found.html" } }, [
+                _vm._v("Page 404"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "sub-btn button1" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Study\n                                "),
+              _c("i", { staticClass: "fa-solid fa-angle-down" }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sub-menu" }, [
+              _c("a", { attrs: { href: "study.html" } }, [
+                _vm._v("Organon Of Medicine"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [
+                _vm._v("Materia Medica"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [_vm._v("Repertory")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [
+                _vm._v("Practice of Medicine"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [
+                _vm._v("Anatomy Physiology"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [_vm._v("Research")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "study.html" } }, [
+                _vm._v("Download Book"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "sub-btn button1" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Testimonial\n                                "),
+              _c("i", { staticClass: "fa-solid fa-angle-down" }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sub-menu" }, [
+              _c("a", { attrs: { href: "celebraties-testimonial.html" } }, [
+                _vm._v("Celebraties Testimonial"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "doctor-testimonial.html" } }, [
+                _vm._v("Doctors Testimonial"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "patient-testimonial.html" } }, [
+                _vm._v("Patients Testimonial"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "video-testimonial.html" } }, [
+                _vm._v("Video Testimonial"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "magazine-testimonial.html" } }, [
+                _vm._v("Magazine Testimonial"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Shop")])]),
+          _vm._v(" "),
+          _c("li", { staticClass: "sub-btn button1" }, [
+            _c("a", { attrs: { href: "Blog/index.html", target: "_blank" } }, [
+              _vm._v("Blog\n                                "),
+              _c("i", { staticClass: "fa-solid fa-angle-down" }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sub-menu" }, [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "Blog/up coming event.html",
+                    target: "_blank",
+                  },
+                },
+                [_vm._v("Up Coming Event")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { attrs: { href: "Blog/videos.html", target: "_blank" } },
+                [_vm._v("Video")]
+              ),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "Blog/photos.html" } }, [
+                _vm._v("Photo"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "Blog/events.html" } }, [
+                _vm._v("Event"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "Blog/media.html" } }, [
+                _vm._v("Media"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "Blog/knowledge.html" } }, [
+                _vm._v("Knowledge of Disease"),
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "index.html#latest-blog" } }, [
+                _vm._v("Lecture"),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "contactus.html" } }, [
+              _vm._v("Contact Us"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "login-menu", attrs: { href: "#" } }, [
+              _vm._v("Quick Appointment"),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [_vm._v("\n                        Home\n                    ")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [_vm._v("\n                        Pages\n                    ")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [_vm._v("\n                        Study \n                    ")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [_vm._v("\n                        Shop \n                    ")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [_vm._v("\n                        Blog \n                    ")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item" }, [
+      _c(
+        "h2",
+        { staticClass: "accordion-header", attrs: { id: "flush-headingTwo" } },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "accordion-button custom collapsed",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "collapse",
+                "data-bs-target": "#two",
+                "aria-expanded": "false",
+                "aria-controls": "flush-collapseTwo",
+              },
+            },
+            [_vm._v("\n                    Our Services\n                ")]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "accordion-collapse collapse",
+          attrs: {
+            id: "two",
+            "aria-labelledby": "two",
+            "data-bs-parent": "#accordionFlushExample",
+          },
+        },
+        [
+          _c("div", { staticClass: "accordion-body custom" }, [
+            _c("ul", [
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fa fa-chevron-right" }),
+                  _vm._v("services"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fa fa-chevron-right" }),
+                  _vm._v("sector"),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "accordion-item custom" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "accordion-header",
+          attrs: { id: "flush-headingThree" },
+        },
+        [
+          _c("a", { attrs: { href: "#" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "accordion-button custom collapsed none",
+                attrs: { type: "button" },
+              },
+              [
+                _vm._v(
+                  "\n                        Contact Us\n                    "
+                ),
+              ]
+            ),
+          ]),
+        ]
+      ),
+    ])
   },
 ]
 render._withStripped = true

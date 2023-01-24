@@ -214,17 +214,17 @@ __webpack_require__.r(__webpack_exports__);
         action: function action() {},
         children: [{
           icon: "mdi mdi-lightning-bolt-circle",
-          text: "Offline",
+          text: "Category",
           auth: true,
           action: function action() {
-            _this.$router.push("/cabin-booking-create")["catch"](function () {});
+            _this.$router.push("/admin/doctor/category")["catch"](function () {});
           }
         }, {
           icon: "mdi mdi-led-on",
-          text: "Online",
+          text: "Doctor List",
           auth: true,
           action: function action() {
-            _this.$router.push("/cabin-booking-list")["catch"](function () {});
+            _this.$router.push("/admin/doctor")["catch"](function () {});
           }
         }]
       }

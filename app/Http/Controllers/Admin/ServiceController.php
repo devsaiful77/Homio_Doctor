@@ -17,6 +17,14 @@ class ServiceController extends Controller
         ]);
     }
 
+    public function edit($id){
+        $service = Service::findOrFail($id);
+        return response()->json([
+            'status' => true,
+            'service' => $service
+        ]);
+    }
+
 
     public function store(Request $request){
         $data = $request->validate([
@@ -35,4 +43,26 @@ class ServiceController extends Controller
         ]);
 
     }
+
+    /* Update */
+    public function update(Request $request,$id){
+        $service = Service::findOrFail($id);
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        $data['slug'] = strtolower(str_replace(' ','-',$data['name']));
+        if ($request->hasFile('imageFile')) {
+            $path = $request->file('imageFile')->store('images/service', 'public');
+            $data['image'] = $path;
+        }
+        $service->update($data);
+        return response()->json([
+            'status' => true,
+            'message' => 'Successfully Edit Service'
+        ]);
+    } 
+
+
+
 }

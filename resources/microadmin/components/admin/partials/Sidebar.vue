@@ -165,22 +165,22 @@ export default {
                     children: [
                         {
                             icon: "mdi mdi-lightning-bolt-circle",
-                            text: "Offline",
+                            text: "Category",
                             auth: true,
                             action: () => {
                                 this.$router
-                                    .push("/cabin-booking-create")
+                                    .push("/admin/doctor/category")
                                     .catch(() => {});
                             },
                         },
 
                         {
                             icon: "mdi mdi-led-on",
-                            text: "Online",
+                            text: "Doctor List",
                             auth: true,
                             action: () => {
                                 this.$router
-                                    .push("/cabin-booking-list")
+                                    .push("/admin/doctor")
                                     .catch(() => {});
                             },
                         },
