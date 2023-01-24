@@ -1,0 +1,38 @@
+:root {
+    --primary: #47b5ff;
+    --primary-light: #edf8ff;
+    --primary-dark: #06283d;
+    --secondary-color: #aa8b56;
+    --gray-100: #f3f4f5;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-700: #374151;
+    --white: #ffffff;
+    --black: #171717;
+    --secondary-text: #444f67;
+    --success: #16a34a;
+    --info: #009ddb;
+    --warning: #f4dd0c;
+    --danger: #dc2626;
+}
+
+.common_margin{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+a.router-link-exact-active.router-link-active {
+    color: green;
+    background: var(--primary);
+    padding: 1opx;
+    padding: 7px 15px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.common__title {
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    background: var(--primary);
+}

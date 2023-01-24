@@ -1,0 +1,21 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/frontend.js": "/js/frontend.js",
+    "/chunks/admin_login.js": "/chunks/admin_login.js",
+    "/chunks/admin_dashboard.js": "/chunks/admin_dashboard.js",
+    "/chunks/admin_service.js": "/chunks/admin_service.js",
+    "/chunks/doctor_login.js": "/chunks/doctor_login.js",
+    "/chunks/doctor_dashboard.js": "/chunks/doctor_dashboard.js",
+    "/chunks/welcome.js": "/chunks/welcome.js",
+    "/chunks/blog.js": "/chunks/blog.js",
+    "/chunks/offline_doctor.js": "/chunks/offline_doctor.js",
+    "/chunks/online_doctor.js": "/chunks/online_doctor.js",
+    "/chunks/surgery_support.js": "/chunks/surgery_support.js",
+    "/chunks/home_service.js": "/chunks/home_service.js",
+    "/chunks/health_mart.js": "/chunks/health_mart.js",
+    "/chunks/ambulance.js": "/chunks/ambulance.js",
+    "/chunks/blood_bank.js": "/chunks/blood_bank.js",
+    "/css/frontend.css": "/css/frontend.css",
+    "/css/app.css": "/css/app.css",
+    "/css/admin.css": "/css/admin.css"
+}

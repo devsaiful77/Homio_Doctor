@@ -1,0 +1,17 @@
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+    display: none;
+    margin: 0;
+}
+
+.invalid-feedback.d-block {
+    color: red;
+    margin-left: 10px;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.preview_image{
+    width: 50%;
+    height: 120px;
+}
+
