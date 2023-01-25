@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogDoctorsTable extends Migration
+class CreateHomioHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateBlogDoctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_doctors', function (Blueprint $table) {
+        Schema::create('homio_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('blog_id');
-            $table->unsignedBigInteger('doctor_id');
+            $table->string('head_line');
+            $table->string('creator_name')->nullable();
+            $table->string('life_date')->nullable();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateBlogDoctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_doctors');
+        Schema::dropIfExists('homio_histories');
     }
 }

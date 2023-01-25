@@ -15,7 +15,6 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('doc_category_id');
             $table->enum('doctor_type',['Online','Offline'])->default('Offline');
             $table->string('name');
